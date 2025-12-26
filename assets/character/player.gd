@@ -5,7 +5,22 @@ const GRAVITY = 500.0
 const WALK_SPEED = 200
 const JUMP_FORCE = -330.0
 
+var active_mask: Mask
+var mask_sprite: Sprite2D
+
+func switch_mask(mask: Mask) -> void:
+	active_mask = mask
+	active_mask.connect("start_mask_rotation", rotate_mask)
+
+func rotate_mask(left: bool) -> void:
+	var tween = create_tween()
+	if left:
+		tween.tween_property($Mask, "rotation_degrees", active_mask.rotation_degrees - 90, 0.2)
+	else:
+		tween.tween_property($Mask, "rotation_degrees", active_mask.rotation_degrees + 90, 0.2)
+
 func _ready() -> void:
+	mask_sprite = $Mask
 	scale *= 4
 
 func _input(event: InputEvent) -> void:

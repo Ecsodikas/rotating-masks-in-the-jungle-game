@@ -11,12 +11,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o8mnx")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 574
+alignment = 1
+
+[node name="Left" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(224, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Right" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(224, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
 [node name="DemoLevelStart" type="Button" parent="."]
 layout_mode = 0
-offset_left = 859.0
-offset_top = 122.0
-offset_right = 1006.0
-offset_bottom = 153.0
+offset_left = 495.0
+offset_right = 642.0
+offset_bottom = 648.0
 text = "Start Demo World"
 
 [connection signal="button_up" from="DemoLevelStart" to="." method="_on_demo_level_start_button_up"]

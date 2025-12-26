@@ -3,6 +3,7 @@ class_name Mask
 
 var rotating = false
 signal mask_rotated
+signal start_mask_rotation
 
 func _ready() -> void:
 	position = get_viewport_rect().size / 2
@@ -17,6 +18,8 @@ func _input(event):
 
 func rotate_mask(left: bool) -> void:
 	var tween = create_tween()
+	emit_signal("start_mask_rotation", left)
+	
 	if left and not rotating:
 		rotating = true
 		tween.tween_property(self, "rotation_degrees", rotation_degrees - 90, 0.2)

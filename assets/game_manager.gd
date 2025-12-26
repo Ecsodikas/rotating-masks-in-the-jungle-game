@@ -19,6 +19,7 @@ func load_level(level: int) -> void:
 	current_level.allowed_masks = masks
 	current_level.active_mask = masks[0]
 	current_level.switch_mask(current_level.active_mask)
+	player.switch_mask(current_level.active_mask)
 	player.position = Vector2(400, 300)
 	game_scene.add_child(player)
 	game_scene.add_child(current_level)
