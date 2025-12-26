@@ -1,9 +1,12 @@
-extends Node2D
+extends TileMapLayer
+class_name Mask
 
 var rotating = false
+signal mask_rotated
 
 func _ready() -> void:
-	pass
+	position = get_viewport_rect().size / 2
+	scale = scale * 4
 	
 func _input(event):
 	if event.is_action_pressed("rotate_mask_right"):
@@ -13,13 +16,18 @@ func _input(event):
 
 
 func rotate_mask(left: bool) -> void:
-	var tween = $TileMapLayer.create_tween()
+	var tween = create_tween()
 	if left and not rotating:
 		rotating = true
-		tween.tween_property($TileMapLayer, "rotation_degrees", $TileMapLayer.rotation_degrees - 90, 0.2)
+		tween.tween_property(self, "rotation_degrees", rotation_degrees - 90, 0.2)
 	elif not rotating:
 		rotating = true
-		tween.tween_property($TileMapLayer, "rotation_degrees", $TileMapLayer.rotation_degrees + 90, 0.2)
+		tween.tween_property(self, "rotation_degrees", rotation_degrees + 90, 0.2)
+	else:
+		pass
+		tween.kill()
 		
 	await tween.finished
 	rotating = false
+	emit_signal("mask_rotated")
+	tween.kill()

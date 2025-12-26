@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv7q051f4kg0j"]
+
+[ext_resource type="Script" uid="uid://by4wqf1k85wrk" path="res://assets/menus/main_menu.gd" id="1_o8mnx"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o8mnx")
+
+[node name="DemoLevelStart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 859.0
+offset_top = 122.0
+offset_right = 1006.0
+offset_bottom = 153.0
+text = "Start Demo World"
+
+[connection signal="button_up" from="DemoLevelStart" to="." method="_on_demo_level_start_button_up"]
