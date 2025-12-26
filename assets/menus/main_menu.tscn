@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv7q051f4kg0j"]
+[gd_scene load_steps=3 format=3 uid="uid://cv7q051f4kg0j"]
 
 [ext_resource type="Script" uid="uid://by4wqf1k85wrk" path="res://assets/menus/main_menu.gd" id="1_o8mnx"]
+[ext_resource type="Texture2D" uid="uid://sx1qgmnq245q" path="res://assets/menus/tmp_mainmenu.png" id="2_0i0v4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 574
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Left" type="ColorRect" parent="HBoxContainer"]
@@ -26,6 +27,10 @@ custom_minimum_size = Vector2(224, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_0i0v4")
 
 [node name="Right" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(224, 0)
